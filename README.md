@@ -1,8 +1,11 @@
-# ponto-news-noticias
+# TCD(Desenvolvimento web): ponto-news-noticias
 
 Portal de notícias pensado para leitura rápida e navegação simples.
+
+## Autor
+Luigi Gabriel Capela Avansi
  
-## Funcionalidades
+## Fase 1(Wireframes): Funcionalidades
  
 - Banner de destaque em carrossel
 - Seção "Últimas Notícias" com alternância entre grade e lista
