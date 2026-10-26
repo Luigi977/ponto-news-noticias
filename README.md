@@ -19,7 +19,6 @@ Luigi Gabriel Capela Avansi
 Nesta entrega, a página do PontoNews foi construída com React e TypeScript, usando as telas da Fase 1 como referência para desktop, tablet e mobile.
 
 - Composição da página no `App.tsx`, com componentes para cabeçalho, filtros, conteúdo principal e notícias mais lidas.
-- Organização do código baseada no projeto Cardápio React, mantendo as pastas `components/layout` e `data`.
 - Layout responsivo com quatro colunas de notícias no desktop, três no tablet e duas no mobile.
 - Filtros acima do destaque e seção "Mais lidas" ao final da página no mobile.
 - Busca por título, filtro por categoria e ordenação por data ou visualizações.
@@ -31,10 +30,3 @@ Nesta entrega, a página do PontoNews foi construída com React e TypeScript, us
 **Tecnologia de estilos utilizada:** apesar da referência a Tailwind no título desta fase, a implementação atual utiliza CSS tradicional em `src/index.css`; Tailwind CSS ainda não foi instalado ou utilizado.
 
 As notícias são dados de demonstração. O carrossel, a alternância entre grade e lista e a autenticação de perfil previstos na Fase 1 ainda não foram implementados. A conferência visual final no navegador também permanece pendente.
-
-Para executar o projeto localmente:
-
-```sh
-npm install
-npm run dev
-```
