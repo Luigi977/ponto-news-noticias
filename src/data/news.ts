@@ -31,3 +31,8 @@ export const featuredNews: News = {
   category: 'tecnologia', label: 'Tecnologia', day: 15, views: 12.4,
   gradient: 'linear-gradient(155deg, #ff8b43, #583a75 58%, #172d4d)',
 }
+
+// Ordena uma nova lista para preservar a ordem das últimas notícias.
+export const mostReadNews = [featuredNews, ...news]
+  .sort((first, second) => second.views - first.views)
+  .slice(0, 5)

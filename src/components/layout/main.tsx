@@ -1,4 +1,5 @@
 import { NewsImage } from '../newsImage'
+import { NewsCarousel } from './newsCarousel'
 import { useRef, useState } from 'react'
 import { featuredNews, type News } from '../../data/news'
 
@@ -18,14 +19,7 @@ export function Main({ news }: { news: News[] }) {
 
   return (
     <main>
-      <section className="featured" aria-labelledby="featured-title">
-        <NewsImage className="featured-image" news={featuredNews} priority />
-        <div className="featured-content">
-          <p>15 de out. de 2026 · 12,4k visualizações</p>
-          <h1 id="featured-title">{featuredNews.title}</h1>
-          <button type="button" onClick={() => openNews(featuredNews)}>Ler mais →</button>
-        </div>
-      </section>
+      <NewsCarousel onOpenNews={openNews} />
       <section className="latest" aria-labelledby="latest-title">
         <header className="section-header"><h2 id="latest-title">Últimas Notícias</h2><span className="grid-badge">Grade</span></header>
         <div className="news-grid" aria-live="polite">

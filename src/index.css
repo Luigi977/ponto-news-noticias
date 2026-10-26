@@ -235,7 +235,7 @@ main {
 
 .featured {
   display: flex;
-  height: 150px;
+  min-height: 150px;
   overflow: hidden;
   border-radius: 12px;
   color: white;
@@ -248,6 +248,8 @@ main {
 }
 
 .featured-content {
+  min-width: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -282,6 +284,40 @@ main {
 
 .featured button {
   margin-top: 7px;
+}
+
+.carousel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 8px;
+  width: 100%;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 7px;
+}
+
+.carousel-controls button {
+  min-width: 24px;
+  min-height: 24px;
+  margin-top: 0;
+  padding: 3px 7px;
+}
+
+.carousel-controls button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.carousel-position {
+  min-width: 24px;
+  font-size: 10px;
+  text-align: center;
 }
 
 /****************
@@ -555,7 +591,7 @@ main {
   }
 
   .featured {
-    height: 130px;
+    min-height: 130px;
   }
 
   .featured-image {
@@ -593,7 +629,7 @@ main {
   }
 
   .featured {
-    height: 140px;
+    min-height: 140px;
   }
 
   .featured-image {
