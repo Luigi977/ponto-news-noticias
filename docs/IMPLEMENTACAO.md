@@ -28,7 +28,9 @@ npm run build
 
 ## Comportamento
 
-Desktop: quatro colunas e barra lateral de 230px. Tablet: três colunas e barra lateral de 200px. Mobile (até 600px): filtros acima do destaque, duas colunas e Mais lidas no final.
+O CSS segue a abordagem mobile first do Cardápio React: as regras base atendem celulares, com filtros acima do destaque, duas colunas e Mais lidas no final. A partir de 768px (48rem), o tablet exibe três colunas e barra lateral de 200px. A partir de 1024px (64rem), o desktop exibe quatro colunas e barra lateral de 230px. Há um ajuste no cabeçalho a partir de 360px (22.5rem).
+
+O `src/index.css` está organizado por comentários de seção: GENERICS, CABECHALHO, NAVEGAÇÃO, MAIN, DESTAQUE, NOTÍCIAS, SIDEBAR, PRÉVIA DA NOTÍCIA, IMAGENS e RESPONSIVIDADE. As propriedades são escritas uma por linha, e as media queries usam somente `min-width`.
 
 Busca, categorias e ordenação funcionam com os dados locais. Os corações marcam favoritos durante a sessão. O botão Ler mais e os títulos abrem uma prévia; não há notícias completas ou autenticação conectadas. O ícone de perfil e o selo Grade reproduzem os elementos visuais da referência.
 
