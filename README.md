@@ -1,75 +1,40 @@
-# React + TypeScript + Vite
+# TCD(Desenvolvimento web): ponto-news-noticias
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portal de notícias pensado para leitura rápida e navegação simples.
 
-Currently, two official plugins are available:
+## Autor
+Luigi Gabriel Capela Avansi
+ 
+## Fase 1(Wireframes): Funcionalidades
+ 
+- Banner de destaque em carrossel
+- Seção "Últimas Notícias" com alternância entre grade e lista
+- Filtro por categoria e ordenação
+- Lista das notícias mais lidas
+- Busca e acesso ao perfil no topo da página
+- Layout adaptável a diferentes tipos de tela
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Fase 2: construção da página no App.tsx com Tailwind CS
 
-## React Compiler
+Nesta entrega, a página do PontoNews foi construída com React e TypeScript, usando as telas da Fase 1 como referência para desktop, tablet e mobile.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Composição da página no `App.tsx`, com componentes para cabeçalho, filtros, conteúdo principal e notícias mais lidas.
+- Organização do código baseada no projeto Cardápio React, mantendo as pastas `components/layout` e `data`.
+- Layout responsivo com quatro colunas de notícias no desktop, três no tablet e duas no mobile.
+- Filtros acima do destaque e seção "Mais lidas" ao final da página no mobile.
+- Busca por título, filtro por categoria e ordenação por data ou visualizações.
+- Marcação de favoritos durante a sessão e abertura de uma prévia das notícias.
+- Inclusão de 13 imagens ilustrativas, salvas no projeto, com fontes documentadas em [docs/IMAGENS.md](docs/IMAGENS.md).
+- Estilos centralizados no arquivo `src/index.css`.
+- Compilação de produção validada com `npm run build`.
 
-## Expanding the ESLint configuration
+**Tecnologia de estilos utilizada:** apesar da referência a Tailwind no título desta fase, a implementação atual utiliza CSS tradicional em `src/index.css`; Tailwind CSS ainda não foi instalado ou utilizado.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+As notícias são dados de demonstração. O carrossel, a alternância entre grade e lista e a autenticação de perfil previstos na Fase 1 ainda não foram implementados. A conferência visual final no navegador também permanece pendente.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Para executar o projeto localmente:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```sh
+npm install
+npm run dev
 ```
