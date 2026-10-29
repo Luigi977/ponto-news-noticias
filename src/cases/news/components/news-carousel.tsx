@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react'
-import { mostReadNews, type News } from '../../data/news'
-import { NewsImage } from '../newsImage'
+import type { News } from '../dtos/news'
+import { NewsImage } from './news-image'
 
 type NewsCarouselProps = {
+  news: News[]
   onOpenNews: (news: News) => void
 }
 
-export function NewsCarousel({ onOpenNews }: NewsCarouselProps) {
+export function NewsCarousel({ news: mostReadNews, onOpenNews }: NewsCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const [hovered, setHovered] = useState(false)
   const [focused, setFocused] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(() =>
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
   )
   const activeNews = mostReadNews[activeIndex]
   const rotating = !paused && !hovered && !focused && !reducedMotion
@@ -27,20 +28,22 @@ export function NewsCarousel({ onOpenNews }: NewsCarouselProps) {
   }, [])
 
   useEffect(() => {
-    if (!rotating) return
+    if (!rotating || mostReadNews.length < 2) return
 
     const timer = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % mostReadNews.length)
     }, 5000)
 
     return () => window.clearInterval(timer)
-  }, [rotating, activeIndex])
+  }, [rotating, activeIndex, mostReadNews.length])
 
   function changeNews(direction: number) {
     setActiveIndex((current) =>
       (current + direction + mostReadNews.length) % mostReadNews.length,
     )
   }
+
+  if (!activeNews) return null
 
   return (
     <section className="featured" aria-label="Notícias mais lidas" aria-roledescription="carrossel"

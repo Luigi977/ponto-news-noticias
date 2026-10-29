@@ -32,3 +32,19 @@ Nesta entrega, a página do PontoNews foi construída com React e TypeScript, us
 **Tecnologia de estilos utilizada:** apesar da referência a Tailwind no título desta fase, a implementação atual utiliza CSS tradicional em `src/index.css`; Tailwind CSS ainda não foi instalado ou utilizado.
 
 As notícias são dados de demonstração. A alternância entre grade e lista e a autenticação de perfil previstas na Fase 1 ainda não foram implementadas. A conferência visual final no navegador também permanece pendente.
+
+### Organização baseada no Cardápio React
+
+A estrutura foi atualizada a partir do `cardapio-react.rar` da Área de Trabalho:
+
+- `src/cases/news/components`: componentes de notícias, incluindo `NewsCard`, carrossel, prévia e lista das mais lidas.
+- `src/cases/news/dtos`: tipos TypeScript e dados locais, seguindo o padrão do DTO de produtos.
+- `src/cases/news/services`: serviço para consultar, filtrar e ordenar as notícias.
+- `src/cases/news/hooks`: acesso ao serviço por `useNews` e `useMostReadNews`, como `useProducts` no cardápio.
+- `App.tsx`: montagem da página, estado das interações e renderização dos cards com `.map()`.
+- `components/layout`: cabeçalho e navegação compartilhados.
+- `public/assets/img`: imagens locais.
+- `index.css`: CSS mobile first, organizado por seções e com media queries `min-width`.
+- React Compiler habilitado no Vite com o mesmo preset Babel utilizado no cardápio.
+
+O carrossel, as 13 notícias, os filtros, os favoritos e o ranking por visualizações foram preservados. A comparação entre os arquivos está em [docs/IMPLEMENTACAO.md](docs/IMPLEMENTACAO.md).

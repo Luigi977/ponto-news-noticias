@@ -1,11 +1,12 @@
 import type { category } from '../../data/categories'
+import type { NewsSort } from '../../cases/news/dtos/news-filter'
 
 type NavigationBarProps = {
   categories: category[]
   activeCategory: string
   onSelectCategory: (alias: string) => void
-  sort: string
-  onSort: (value: string) => void
+  sort: NewsSort
+  onSort: (value: NewsSort) => void
 }
 
 export function NavigationBar({ categories, activeCategory, onSelectCategory, sort, onSort }: NavigationBarProps) {
@@ -22,7 +23,7 @@ export function NavigationBar({ categories, activeCategory, onSelectCategory, so
         </ul>
       </nav>
       <label htmlFor="news-sort">Ordenar por</label>
-      <select id="news-sort" value={sort} onChange={(event) => onSort(event.target.value)}>
+      <select id="news-sort" value={sort} onChange={(event) => onSort(event.target.value as NewsSort)}>
         <option value="recentes">Mais recentes</option>
         <option value="antigas">Mais antigas</option>
         <option value="lidas">Mais lidas</option>

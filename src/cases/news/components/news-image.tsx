@@ -1,4 +1,4 @@
-import type { News } from '../data/news'
+import type { News } from '../dtos/news'
 
 type NewsImageProps = { news: News; className: string; priority?: boolean }
 

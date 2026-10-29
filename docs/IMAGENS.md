@@ -1,6 +1,6 @@
 # Fontes das imagens
 
-Imagens ilustrativas pesquisadas no Pexels e salvas em `public/images/news`. Não representam necessariamente os eventos descritos nas notícias de demonstração.
+Imagens ilustrativas pesquisadas no Pexels e salvas em `public/assets/img`. Não representam necessariamente os eventos descritos nas notícias de demonstração.
 
 [Licença Pexels](https://www.pexels.com/license/): permite uso gratuito em sites e adaptações; não implica endosso das pessoas ou marcas fotografadas. Consulte a página original para os créditos do fotógrafo.
 

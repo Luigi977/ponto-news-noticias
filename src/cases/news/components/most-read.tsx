@@ -1,7 +1,11 @@
-import { NewsImage } from '../newsImage'
-import { mostReadNews } from '../../data/news'
+import { NewsImage } from './news-image'
+import type { News } from '../dtos/news'
 
-export function MostRead() {
+type MostReadProps = {
+  news: News[]
+}
+
+export function MostRead({ news: mostReadNews }: MostReadProps) {
   return (
     <aside className="most-read panel" aria-labelledby="most-read-title">
       <h2 id="most-read-title">🔥 Mais lidas</h2>
