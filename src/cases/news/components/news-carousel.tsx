@@ -10,22 +10,8 @@ type NewsCarouselProps = {
 export function NewsCarousel({ news: mostReadNews, onOpenNews }: NewsCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [paused, setPaused] = useState(false)
-  const [hovered, setHovered] = useState(false)
-  const [focused, setFocused] = useState(false)
-  const [reducedMotion, setReducedMotion] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-  )
   const activeNews = mostReadNews[activeIndex]
-  const rotating = !paused && !hovered && !focused && !reducedMotion
-
-  useEffect(() => {
-    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
-    function updatePreference() {
-      setReducedMotion(preference.matches)
-    }
-    preference.addEventListener('change', updatePreference)
-    return () => preference.removeEventListener('change', updatePreference)
-  }, [])
+  const rotating = !paused
 
   useEffect(() => {
     if (!rotating || mostReadNews.length < 2) return
@@ -35,7 +21,7 @@ export function NewsCarousel({ news: mostReadNews, onOpenNews }: NewsCarouselPro
     }, 5000)
 
     return () => window.clearInterval(timer)
-  }, [rotating, activeIndex, mostReadNews.length])
+  }, [rotating, mostReadNews.length])
 
   function changeNews(direction: number) {
     setActiveIndex((current) =>
@@ -46,13 +32,7 @@ export function NewsCarousel({ news: mostReadNews, onOpenNews }: NewsCarouselPro
   if (!activeNews) return null
 
   return (
-    <section className="featured" aria-label="Notícias mais lidas" aria-roledescription="carrossel"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setFocused(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false)
-      }}>
+    <section className="featured" aria-label="Notícias mais lidas" aria-roledescription="carrossel">
       <NewsImage key={activeNews.id} className="featured-image" news={activeNews} priority />
       <div className="featured-content">
         <div className="featured-slide" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
@@ -67,8 +47,8 @@ export function NewsCarousel({ news: mostReadNews, onOpenNews }: NewsCarouselPro
               {activeIndex + 1}/{mostReadNews.length}
             </span>
             <button type="button" aria-label="Próxima notícia" onClick={() => changeNews(1)}>›</button>
-            <button type="button" aria-pressed={paused} onClick={() => setPaused((current) => !current)} disabled={reducedMotion}>
-              {reducedMotion ? 'Manual' : paused ? 'Retomar' : 'Pausar'}
+            <button type="button" aria-pressed={paused} onClick={() => setPaused((current) => !current)}>
+              {paused ? 'Retomar' : 'Pausar'}
             </button>
           </div>
         </div>

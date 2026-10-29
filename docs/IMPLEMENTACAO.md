@@ -57,7 +57,7 @@ O `src/index.css` está organizado por comentários de seção: GENERICS, CABECH
 
 Busca, categorias e ordenação funcionam com os dados locais. Os corações marcam favoritos durante a sessão. O botão Ler mais e os títulos abrem uma prévia; não há notícias completas ou autenticação conectadas. O ícone de perfil e o selo Grade reproduzem os elementos visuais da referência.
 
-O ranking usa as visualizações de todas as notícias, incluindo o destaque principal, em ordem decrescente. A lista lateral e o carrossel compartilham `mostReadNews`, sem alterar a ordem dos cards. A rotação pausa ao passar o mouse ou manter o foco no carrossel e respeita a preferência de movimento reduzido. O botão Ler mais abre a notícia exibida no momento.
+O ranking usa as visualizações de todas as notícias, incluindo o destaque principal, em ordem decrescente. A lista lateral e o carrossel compartilham `mostReadNews`, sem alterar a ordem dos cards. A rotação troca a notícia automaticamente a cada 5 segundos, inclusive com o mouse ou o foco no carrossel. A pausa é controlada pelos botões Pausar e Retomar; as trocas são diretas, sem animação de movimento. O botão Ler mais abre a notícia exibida no momento.
 
 Validação: compilação TypeScript e build Vite concluídos. A comparação visual no navegador ficou pendente porque não havia navegador conectado à sessão.
 
