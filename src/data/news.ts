@@ -11,7 +11,14 @@ export type News = {
   gradient: string
 }
 
+export const featuredNews: News = {
+  id: 0, image: newsImages[0], title: 'Nova tecnologia promete revolucionar a forma como vivemos nas cidades',
+  category: 'tecnologia', label: 'Tecnologia', day: 15, views: 12.4,
+  gradient: 'linear-gradient(155deg, #ff8b43, #583a75 58%, #172d4d)',
+}
+
 export const news: News[] = [
+  featuredNews,
   { id: 1, image: newsImages[1], title: 'WhatsApp lança nova função para melhorar a privacidade', category: 'tecnologia', label: 'Tecnologia', day: 14, views: 8.2, gradient: 'linear-gradient(120deg, #1d3c30, #4eae7a)' },
   { id: 2, image: newsImages[2], title: 'Flamengo vence e assume a liderança do Brasileirão', category: 'esportes', label: 'Esportes', day: 14, views: 6.7, gradient: 'linear-gradient(120deg, #b61f2b, #2b683b)' },
   { id: 3, image: newsImages[3], title: 'Inflação desacelera e fica abaixo do esperado em setembro', category: 'economia', label: 'Economia', day: 13, views: 5.1, gradient: 'linear-gradient(120deg, #242232, #c2a047)' },
@@ -26,13 +33,7 @@ export const news: News[] = [
   { id: 12, image: newsImages[12], title: 'Governo anuncia novo pacote de medidas sociais', category: 'politica', label: 'Política', day: 8, views: 1.2, gradient: 'linear-gradient(120deg, #8e272c, #e1c2a3)' },
 ]
 
-export const featuredNews: News = {
-  id: 0, image: newsImages[0], title: 'Nova tecnologia promete revolucionar a forma como vivemos nas cidades',
-  category: 'tecnologia', label: 'Tecnologia', day: 15, views: 12.4,
-  gradient: 'linear-gradient(155deg, #ff8b43, #583a75 58%, #172d4d)',
-}
-
 // Ordena uma nova lista para preservar a ordem das últimas notícias.
-export const mostReadNews = [featuredNews, ...news]
+export const mostReadNews = [...news]
   .sort((first, second) => second.views - first.views)
   .slice(0, 5)
