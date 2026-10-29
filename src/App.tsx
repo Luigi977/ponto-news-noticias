@@ -17,7 +17,6 @@ function App() {
     const [favorites, setFavorites] = useState<number[]>([]);
     const [selectedNews, setSelectedNews] = useState<News>(featuredNews);
     const dialog = useRef<HTMLDialogElement>(null);
-
     const news = useNews({ category: activeCategory, search, sort });
     const mostReadNews = useMostReadNews();
 
@@ -64,7 +63,6 @@ function App() {
                     <section className="latest" aria-labelledby="latest-title">
                         <header className="section-header">
                             <h2 id="latest-title">Últimas Notícias</h2>
-                            <span className="grid-badge">Grade</span>
                         </header>
                         <div className="news-grid" aria-live="polite">
                             {news.map((item) => (
