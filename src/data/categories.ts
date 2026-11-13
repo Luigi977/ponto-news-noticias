@@ -1,9 +1,9 @@
-export type category = {
+export type Category = {
     alias: string;
     label: string;
 };
 
-export const categories: category[] = [
+export const categories: Category[] = [
     {
         alias: "todos",
         label: "Todas"
