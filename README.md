@@ -31,4 +31,12 @@ Nesta entrega, a página do PontoNews foi construída com React e TypeScript, us
 
 **Tecnologia de estilos utilizada:** apesar da referência a Tailwind no título desta fase, a implementação atual utiliza CSS tradicional em `src/index.css`; Tailwind CSS ainda não foi instalado ou utilizado.
 
-As notícias são dados de demonstração. A alternância entre grade e lista e a autenticação de perfil previstas na Fase 1 ainda não foram implementadas. A conferência visual final no navegador também permanece pendente.
+As notícias são dados de demonstração. A autenticação de perfil prevista na Fase 1 ainda não foi implementada. A conferência visual final no navegador também permanece pendente.
+
+## Fase 3: componentes, dados e estado
+
+- Componentes em `src/components/layout` e `src/components/news`, com responsabilidades e props tipadas.
+- Dados de notícias e imagens em `src/data`, separados dos tipos em `src/cases/news/dtos`.
+- Duas listagens de notícias renderizadas com `map` e `key={item.id}`: últimas notícias e mais lidas.
+- Alternância entre grade e lista com `useState` no `App.tsx`, passando o valor e a função de atualização por props.
+- Estilos em CSS tradicional, mantidos em `src/index.css`.

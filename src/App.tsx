@@ -9,6 +9,7 @@ import { MostRead } from "./components/news/most-read";
 import type { News } from "./cases/news/dtos/news";
 import { featuredNews } from "./data/news";
 import type { NewsSort } from "./cases/news/dtos/news-filter";
+import type { NewsView } from "./cases/news/dtos/news-view";
 import { useNews, useMostReadNews } from "./cases/news/hooks/use-news";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     const [search, setSearch] = useState<string>("");
     const [sort, setSort] = useState<NewsSort>("recentes");
     const [favorites, setFavorites] = useState<number[]>([]);
+    const [view, setView] = useState<NewsView>("grid");
     const [selectedNews, setSelectedNews] = useState<News>(featuredNews);
     const dialog = useRef<HTMLDialogElement>(null);
     const news = useNews({ category: activeCategory, search, sort });
@@ -64,6 +66,8 @@ function App() {
                     <NewsList
                         news={news}
                         favorites={favorites}
+                        view={view}
+                        onViewChange={setView}
                         onOpenNews={handleOpenNews}
                         onToggleFavorite={handleToggleFavorite}
                     />
