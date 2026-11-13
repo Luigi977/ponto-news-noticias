@@ -1,11 +1,11 @@
-﻿import { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Header } from "./components/layout/header";
 import { NavigationBar } from "./components/layout/navigationBar";
 import { categories } from "./data/categories";
-import { NewsCard } from "./cases/news/components/news-card";
-import { NewsCarousel } from "./cases/news/components/news-carousel";
-import { NewsPreview } from "./cases/news/components/news-preview";
-import { MostRead } from "./cases/news/components/most-read";
+import { NewsList } from "./components/news/news-list";
+import { NewsCarousel } from "./components/news/news-carousel";
+import { NewsPreview } from "./components/news/news-preview";
+import { MostRead } from "./components/news/most-read";
 import { featuredNews, type News } from "./cases/news/dtos/news";
 import type { NewsSort } from "./cases/news/dtos/news-filter";
 import { useNews, useMostReadNews } from "./cases/news/hooks/use-news";
@@ -60,27 +60,12 @@ function App() {
                 />
                 <main>
                     <NewsCarousel news={mostReadNews} onOpenNews={handleOpenNews} />
-                    <section className="latest" aria-labelledby="latest-title">
-                        <header className="section-header">
-                            <h2 id="latest-title">Últimas Notícias</h2>
-                        </header>
-                        <div className="news-grid" aria-live="polite">
-                            {news.map((item) => (
-                                <NewsCard
-                                    key={item.id}
-                                    news={item}
-                                    isFavorite={favorites.includes(item.id)}
-                                    onOpenNews={handleOpenNews}
-                                    onToggleFavorite={handleToggleFavorite}
-                                />
-                            ))}
-                            {news.length === 0 && (
-                                <p className="empty-state">
-                                    Nenhuma notícia encontrada. Tente outra busca ou categoria.
-                                </p>
-                            )}
-                        </div>
-                    </section>
+                    <NewsList
+                        news={news}
+                        favorites={favorites}
+                        onOpenNews={handleOpenNews}
+                        onToggleFavorite={handleToggleFavorite}
+                    />
                     <NewsPreview news={selectedNews} dialogRef={dialog} />
                 </main>
                 <MostRead news={mostReadNews} />

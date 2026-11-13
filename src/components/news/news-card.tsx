@@ -1,4 +1,4 @@
-import type { News } from "../dtos/news";
+import type { News } from "../../cases/news/dtos/news";
 import { NewsImage } from "./news-image";
 
 type NewsCardProps = {
