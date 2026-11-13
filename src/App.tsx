@@ -6,7 +6,8 @@ import { NewsList } from "./components/news/news-list";
 import { NewsCarousel } from "./components/news/news-carousel";
 import { NewsPreview } from "./components/news/news-preview";
 import { MostRead } from "./components/news/most-read";
-import { featuredNews, type News } from "./cases/news/dtos/news";
+import type { News } from "./cases/news/dtos/news";
+import { featuredNews } from "./data/news";
 import type { NewsSort } from "./cases/news/dtos/news-filter";
 import { useNews, useMostReadNews } from "./cases/news/hooks/use-news";
 

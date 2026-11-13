@@ -1,8 +1,8 @@
-import type { category } from '../../data/categories'
+import type { Category } from '../../data/categories'
 import type { NewsSort } from '../../cases/news/dtos/news-filter'
 
 type NavigationBarProps = {
-  categories: category[]
+  categories: Category[]
   activeCategory: string
   onSelectCategory: (alias: string) => void
   sort: NewsSort
